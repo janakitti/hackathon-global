@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+#side-nav {
+  position: fixed;
+  height: 100vh;
+  width: 15em;
+  padding: 5em 2em;
+}

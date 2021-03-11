@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div>
+        <div id="side-nav">
           <Link to="/">Home</Link>
           <Link to="/events">Events</Link>
         </div>
