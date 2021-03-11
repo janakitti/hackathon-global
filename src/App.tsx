@@ -1,8 +1,9 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
+import "./styles/main.scss";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Home from "./Home/Home";
-import Events from "./Events/Events";
+import Home from "./components/Home/Home";
+import Events from "./components/Events/Events";
 
 function App() {
   return (
