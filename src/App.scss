@@ -1,6 +1,13 @@
 .nav-link {
-  padding: 2em;
-  text-decoration: none;
+  padding: 1em 2em;
+  margin: 1em 0;
+
+  text-align: left;
+  border-radius: $card-border-radius;
+}
+
+.nav-link:hover {
+  box-shadow: $drop-shadow;
 }
 
 #router-container {

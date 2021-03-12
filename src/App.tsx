@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.scss";
 import "./styles/main.scss";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./components/Home/Home";
@@ -11,10 +10,12 @@ function App() {
       <Router>
         <div id="router-container">
           <div id="side-nav">
-            <Link className="nav-link" to="/">
-              Home
+            <Link to="/">
+              <div className="nav-link">Home</div>
             </Link>
-            <Link to="/events">Events</Link>
+            <Link to="/events">
+              <div className="nav-link">Events</div>
+            </Link>
           </div>
           <div id="page-window">
             <Switch>
