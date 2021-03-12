@@ -1,0 +1,63 @@
+.event-card {
+  display: flex;
+  padding: 2em;
+  width: 100%;
+  border-radius: $card-border-radius;
+  box-shadow: $drop-shadow;
+  background-color: $panel;
+}
+
+.date-col {
+  display: flex;
+  justify-content: center;
+  padding-right: 2em;
+  width: 8em;
+  height: 100%;
+}
+
+.cal-container {
+  position: relative;
+  height: 4em;
+  width: 4em;
+  border-radius: $card-border-radius;
+
+  box-shadow: $drop-shadow;
+  background-color: $lighter;
+}
+
+.cal-month {
+  display: block;
+  text-align: center;
+}
+
+.cal-date {
+  display: block;
+  text-align: center;
+}
+
+.details-col {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.event-type {
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 0.5em;
+}
+
+.event-title {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.event-time {
+  font-size: 0.8em;
+  font-weight: 300;
+}
+
+.event-desc {
+  font-size: 0.8em;
+  font-weight: 400;
+  color: $light;
+}

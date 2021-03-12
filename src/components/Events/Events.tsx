@@ -1,5 +1,7 @@
+import EventCard from "./EventCard/EventCard";
+
 const Events = () => {
-  return <h1>Events</h1>;
+  return <EventCard />;
 };
 
 export default Events;
