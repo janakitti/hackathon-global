@@ -9,18 +9,24 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div id="side-nav">
-          <Link to="/">Home</Link>
-          <Link to="/events">Events</Link>
+        <div id="router-container">
+          <div id="side-nav">
+            <Link className="nav-link" to="/">
+              Home
+            </Link>
+            <Link to="/events">Events</Link>
+          </div>
+          <div id="page-window">
+            <Switch>
+              <Route path="/events">
+                <Events />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </div>
         </div>
-        <Switch>
-          <Route path="/events">
-            <Events />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
       </Router>
     </div>
   );
