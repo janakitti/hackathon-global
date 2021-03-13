@@ -2,6 +2,7 @@ import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { TEvent } from "../../../shared/EventTypes";
+import { v4 as uuidv4 } from "uuid";
 
 interface IEventCardProps {
   event: TEvent;
@@ -17,8 +18,10 @@ const EventCard: React.FC<IEventCardProps> = ({ event }) => {
 
   const presenterImgs = presenters.map((url: string) => (
     <OverlayTrigger
+      key={uuidv4()}
       placement="bottom"
       delay={{ show: 250, hide: 400 }}
+      transition={false}
       overlay={
         <Tooltip id="id" placement="top">
           Firstname Lastname
@@ -30,7 +33,9 @@ const EventCard: React.FC<IEventCardProps> = ({ event }) => {
   ));
 
   const relatedPills = related.map((name: string) => (
-    <div className="related-pill">{name}</div>
+    <div key={uuidv4()} className="related-pill">
+      {name}
+    </div>
   ));
 
   return (
