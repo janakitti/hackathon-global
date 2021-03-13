@@ -97,9 +97,18 @@
 }
 
 .presenter-pfp {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
   height: 2.5em;
   width: 2.5em;
   margin-right: 0.5em;
   border-radius: 100em;
   box-shadow: $drop-shadow;
+}
+
+.default-presenter-pfp {
+  background-color: $primary;
+  color: #ffffff;
 }
