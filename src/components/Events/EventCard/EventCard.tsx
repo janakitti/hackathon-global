@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
@@ -9,6 +10,14 @@ const EventCard = () => {
   ];
 
   const related = ["Related 1", "Related 2"];
+
+  useEffect(() => {
+    fetch(
+      "https://api.hackthenorth.com/v3/graphql?query={ events { id name event_type permission start_time end_time description speakers { name profile_pic } public_url private_url related_events } }"
+    )
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }, []);
 
   const presenterImgs = presenters.map((url: string) => (
     <OverlayTrigger
