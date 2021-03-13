@@ -73,6 +73,21 @@
   color: $light;
 }
 
+.event-bottom-row {
+  display: flex;
+}
+
+.attend-button-container {
+  flex: 1;
+}
+
 .attend-button {
   float: right;
+}
+
+.presenter-pfp {
+  height: 2.5em;
+  width: 2.5em;
+  border-radius: 100em;
+  box-shadow: $drop-shadow;
 }

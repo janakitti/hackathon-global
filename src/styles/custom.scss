@@ -5,6 +5,8 @@ $theme-colors: (
 @import "~bootstrap/scss/bootstrap";
 
 .btn {
+  padding-left: 2em;
+  padding-right: 2em;
   border-radius: $button-border-radius;
   box-shadow: $drop-shadow;
 }

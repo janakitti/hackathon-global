@@ -25,10 +25,19 @@ const EventCard = () => {
           app, create a Facebook bot, or build applications on top of
           programmable phone numbers, Vonage has got you covered
         </p>
-        <div className="presenter-container"></div>
-        <Button variant="primary" className="attend-button">
-          Primary
-        </Button>
+        <div className="event-bottom-row">
+          <div className="presenter-container">
+            <img
+              src="https://hackthenorth.com/img/schedule/RishiKothari.png"
+              className="presenter-pfp"
+            />
+          </div>
+          <div className="attend-button-container">
+            <Button variant="primary" className="attend-button">
+              Attend
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );
