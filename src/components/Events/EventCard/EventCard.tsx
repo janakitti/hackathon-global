@@ -1,6 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 const EventCard = () => {
   return (
@@ -24,6 +25,10 @@ const EventCard = () => {
           app, create a Facebook bot, or build applications on top of
           programmable phone numbers, Vonage has got you covered
         </p>
+        <div className="presenter-container"></div>
+        <Button variant="primary" className="attend-button">
+          Primary
+        </Button>
       </div>
     </div>
   );
