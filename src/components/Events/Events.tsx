@@ -12,7 +12,9 @@ const Events = () => {
       .then((data: TEndpointResponse) => setEvents(data.data.events));
   }, []);
 
-  const eventCards = events.map((item: TEvent) => <EventCard event={item} />);
+  const eventCards = events.map((item: TEvent) => (
+    <EventCard key={item.id} event={item} />
+  ));
 
   return <div id="events-page">{eventCards}</div>;
 };
