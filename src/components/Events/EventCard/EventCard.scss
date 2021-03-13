@@ -16,6 +16,9 @@
 }
 
 .cal-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   position: relative;
   height: 4em;
   width: 4em;
@@ -27,11 +30,19 @@
 
 .cal-month {
   display: block;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1.2em;
+  color: $light;
   text-align: center;
 }
 
 .cal-date {
   display: block;
+  font-size: 1.6em;
+  font-weight: 700;
+  line-height: 1.2em;
+  color: $light;
   text-align: center;
 }
 
