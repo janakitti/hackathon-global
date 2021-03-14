@@ -1,9 +1,11 @@
+import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { TEvent, TSpeaker, TEventType } from "../../../shared/EventTypes";
 import { v4 as uuidv4 } from "uuid";
 import { DateTime } from "luxon";
+import { AppContext } from "../../../context/context";
 
 interface IEventCardProps {
   event: TEvent;
@@ -26,7 +28,9 @@ const generateEventTypeText = (type: TEventType) => {
 };
 
 const EventCard: React.FC<IEventCardProps> = ({ event, eventsMap }) => {
-  console.log(eventsMap);
+  const {
+    state: { user },
+  } = useContext(AppContext);
   const presenterImgs = event.speakers.map((speaker: TSpeaker) => (
     <OverlayTrigger
       key={uuidv4()}
@@ -84,7 +88,14 @@ const EventCard: React.FC<IEventCardProps> = ({ event, eventsMap }) => {
         <div className="event-bottom-row">
           <div className="presenter-container">{presenterImgs}</div>
           <div className="attend-button-container">
-            <Button variant={event.event_type} className="attend-button">
+            <Button
+              variant={event.event_type}
+              className="attend-button"
+              href={
+                user.type === "public" ? event.public_url : event.private_url
+              }
+              target="_blank"
+            >
               Attend
             </Button>
           </div>

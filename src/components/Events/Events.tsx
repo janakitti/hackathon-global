@@ -34,7 +34,7 @@ const Events = () => {
           data.data.events
             .filter(
               (event: TEvent) =>
-                (user.type === "public" && event.permission !== "public") ||
+                (user.type === "public" && event.permission === "public") ||
                 user.type !== "public"
             )
             .sort((a: TEvent, b: TEvent) =>
@@ -95,7 +95,6 @@ const Events = () => {
             setSelectedFilter={() => setSelectedFilter("tech_talk")}
           />
         </div>
-
         {eventCards}
       </div>
     </div>
