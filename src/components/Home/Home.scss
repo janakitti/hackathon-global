@@ -1,0 +1,14 @@
+.home__div--card {
+  display: flex;
+  padding: 2em;
+  width: 100%;
+  margin-bottom: 1em;
+  border-radius: $card-border-radius;
+  box-shadow: $drop-shadow;
+  background-color: $panel;
+}
+
+#home__h1--welcome {
+  font-weight: 700;
+  font-size: 2em;
+}

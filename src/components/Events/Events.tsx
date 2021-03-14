@@ -63,8 +63,8 @@ const Events = () => {
   }, [events, selectedFilter, searchValue]);
 
   return (
-    <div id="events-page">
-      <div id="events__div--inner-container">
+    <div className="dashboard__div--page">
+      <div className="dashboard__div--inner-container">
         <EventSearch
           searchValue={searchValue}
           setSearchValue={setSearchValue}

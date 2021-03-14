@@ -10,3 +10,15 @@ body {
   height: 100vh;
   flex-grow: 1;
 }
+
+.dashboard__div--page {
+  height: 100%;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 2em;
+}
+
+.dashboard__div--inner-container {
+  width: 50em;
+}
