@@ -3,6 +3,7 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { TEvent, TSpeaker, TEventType } from "../../../shared/EventTypes";
 import { v4 as uuidv4 } from "uuid";
+import { DateTime } from "luxon";
 
 interface IEventCardProps {
   event: TEvent;
@@ -25,7 +26,6 @@ const generateEventTypeText = (type: TEventType) => {
 
 const EventCard: React.FC<IEventCardProps> = ({ event }) => {
   const related = ["Related 1", "Related 2"];
-
   const presenterImgs = event.speakers.map((speaker: TSpeaker) => (
     <OverlayTrigger
       key={uuidv4()}
@@ -58,14 +58,26 @@ const EventCard: React.FC<IEventCardProps> = ({ event }) => {
     <div className="event-card">
       <div className="date-col">
         <div className="cal-container">
-          <span className="cal-month">JAN</span>
-          <span className="cal-date">12</span>
+          <span className="cal-month">
+            {DateTime.fromMillis(event.start_time).monthShort.toUpperCase()}
+          </span>
+          <span className="cal-date">
+            {DateTime.fromMillis(event.start_time).day}
+          </span>
         </div>
       </div>
       <div className="details-col">
         {generateEventTypeText(event.event_type)}
         <h1 className="event-title">{event.name}</h1>
-        <h3 className="event-time">8:00am - 8:30pm</h3>
+        <h3 className="event-time">
+          {DateTime.fromMillis(event.start_time).toLocaleString(
+            DateTime.TIME_SIMPLE
+          )}
+          {" - "}
+          {DateTime.fromMillis(event.end_time).toLocaleString(
+            DateTime.TIME_SIMPLE
+          )}
+        </h3>
         <p className="event-desc">{event.description}</p>
         <div className="event-bottom-row">{relatedPills}</div>
         <div className="event-bottom-row">
