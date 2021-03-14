@@ -23,22 +23,22 @@ const Events = () => {
         <div className="events__div--event-filter-container">
           <EventFilter
             name="All Events"
-            imgUrl="/all_events.jpg"
+            imgUrl="/all_events.svg"
             color="event-filter__div--all-events"
           />
           <EventFilter
             name="Workshops"
-            imgUrl="/workshops.jpg"
+            imgUrl="/workshops.svg"
             color="event-filter__div--workshops"
           />
           <EventFilter
             name="Activities"
-            imgUrl="/activities.jpg"
+            imgUrl="/activities.svg"
             color="event-filter__div--activities"
           />
           <EventFilter
             name="Tech Talks"
-            imgUrl="/tech_talks.jpg"
+            imgUrl="/tech_talks.svg"
             color="event-filter__div--tech-talks"
           />
         </div>
