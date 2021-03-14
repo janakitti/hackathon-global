@@ -22,6 +22,7 @@ const SideNav = () => {
         height={100}
       />
       <img src={user.profilePic} id="side-nav__img--pfp"></img>
+      <h1 id="side-nav__h1--username">{user.username}</h1>
       <Link to="/">
         <div
           className={

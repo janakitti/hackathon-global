@@ -6,7 +6,7 @@ export const userReducer = (state: TUserState, action: TUserActions) => {
       return { ...action.payload };
     case UserActions.LOGOUT_USER:
       return {
-        username: "",
+        username: "Guest Hacker",
         email: "",
         type: "public",
         profilePic: "/default_pfp.svg",

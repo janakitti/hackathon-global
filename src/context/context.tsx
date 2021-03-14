@@ -8,7 +8,7 @@ type TStore = {
 
 const initialState: TStore = {
   user: {
-    username: "",
+    username: "Guest Hacker",
     email: "",
     type: "public",
     profilePic: "/default_pfp.svg",
