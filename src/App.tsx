@@ -19,6 +19,13 @@ function App() {
               <Router>
                 <div id="router-container">
                   <div id="side-nav">
+                    <img
+                      src="/logo_1.svg"
+                      className="login__h1--logo"
+                      width={100}
+                      height={100}
+                    />
+                    <img src="/hacker_pfp.svg" id="side-nav__img--pfp"></img>
                     <Link to="/">
                       <div className="nav-link">Home</div>
                     </Link>
