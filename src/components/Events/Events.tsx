@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import {
   TEndpointResponse,
   TEvent,
@@ -6,8 +6,14 @@ import {
 } from "../../shared/EventTypes";
 import EventFilter from "./EventFilter/EventFilter";
 import EventCard from "./EventCard/EventCard";
+import { AppContext } from "../../context/context";
+import { loginUser } from "../../context/actions/UserActions";
 
 const Events = () => {
+  const {
+    state: { user },
+    dispatch,
+  } = useContext(AppContext);
   const [events, setEvents] = useState<TEvent[]>([]);
   const [selectedFilter, setSelectedFilter] = useState<TEventFilters>("all");
   const [eventCards, setEventCards] = useState<JSX.Element[]>();
@@ -23,6 +29,14 @@ const Events = () => {
           )
         )
       );
+    console.log(user);
+    dispatch(
+      loginUser({
+        username: "ee",
+        email: "swdef",
+      })
+    );
+    console.log(user);
   }, []);
 
   useEffect(() => {
