@@ -21,10 +21,26 @@ const Events = () => {
     <div id="events-page">
       <div id="events__div--inner-container">
         <div className="events__div--event-filter-container">
-          <EventFilter name="All Events" imgUrl="/all_events.jpg" />
-          <EventFilter name="Workshops" imgUrl="/workshops.jpg" />
-          <EventFilter name="Activities" imgUrl="/activities.jpg" />
-          <EventFilter name="Tech Talks" imgUrl="/tech_talks.jpg" />
+          <EventFilter
+            name="All Events"
+            imgUrl="/all_events.jpg"
+            color="event-filter__div--all-events"
+          />
+          <EventFilter
+            name="Workshops"
+            imgUrl="/workshops.jpg"
+            color="event-filter__div--workshops"
+          />
+          <EventFilter
+            name="Activities"
+            imgUrl="/activities.jpg"
+            color="event-filter__div--activities"
+          />
+          <EventFilter
+            name="Tech Talks"
+            imgUrl="/tech_talks.jpg"
+            color="event-filter__div--tech-talks"
+          />
         </div>
 
         {eventCards}

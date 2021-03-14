@@ -1,7 +1,6 @@
 .event-filter__div--filter-card {
   display: flex;
   width: 10em;
-  padding: 2em;
   margin-bottom: 1em;
   border-radius: $card-border-radius;
   box-shadow: $drop-shadow;
@@ -10,4 +9,30 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.event-filter__div--filter-card-color {
+  width: 10em;
+  padding: 2em;
+  border-radius: $card-border-radius;
+  box-shadow: $drop-shadow;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 700;
+}
+
+.event-filter__div--all-events {
+  background-color: rgba($primary, $event-filter-alpha);
+}
+
+.event-filter__div--workshops {
+  background-color: rgba($workshop, $event-filter-alpha);
+}
+
+.event-filter__div--activities {
+  background-color: rgba($activity, $event-filter-alpha);
+}
+
+.event-filter__div--tech-talks {
+  background-color: rgba($tech-talk, $event-filter-alpha);
 }

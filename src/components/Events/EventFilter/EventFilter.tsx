@@ -1,9 +1,10 @@
 interface IEventFilterProps {
   name: string;
   imgUrl: string;
+  color: string;
 }
 
-const EventFilter: React.FC<IEventFilterProps> = ({ name, imgUrl }) => {
+const EventFilter: React.FC<IEventFilterProps> = ({ name, imgUrl, color }) => {
   return (
     <div
       className="event-filter__div--filter-card"
@@ -11,7 +12,9 @@ const EventFilter: React.FC<IEventFilterProps> = ({ name, imgUrl }) => {
         backgroundImage: `url("` + imgUrl + `")`,
       }}
     >
-      {name}
+      <div className={`event-filter__div--filter-card-color ${color}`}>
+        {name}
+      </div>
     </div>
   );
 };
