@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { TEndpointResponse, TEvent } from "../../shared/EventTypes";
+import EventFilter from "./EventFilter/EventFilter";
 import EventCard from "./EventCard/EventCard";
 
 const Events = () => {
@@ -16,7 +17,20 @@ const Events = () => {
     <EventCard key={item.id} event={item} />
   ));
 
-  return <div id="events-page">{eventCards}</div>;
+  return (
+    <div id="events-page">
+      <div id="events__div--inner-container">
+        <div className="events__div--event-filter-container">
+          <EventFilter name="All Events" imgUrl="/all_events.jpg" />
+          <EventFilter name="Workshops" imgUrl="/workshops.jpg" />
+          <EventFilter name="Activities" imgUrl="/activities.jpg" />
+          <EventFilter name="Tech Talks" imgUrl="/tech_talks.jpg" />
+        </div>
+
+        {eventCards}
+      </div>
+    </div>
+  );
 };
 
 export default Events;

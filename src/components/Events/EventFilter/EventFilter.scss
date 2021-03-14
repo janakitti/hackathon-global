@@ -1,0 +1,13 @@
+.event-filter__div--filter-card {
+  display: flex;
+  width: 10em;
+  padding: 2em;
+  margin-bottom: 1em;
+  border-radius: $card-border-radius;
+  box-shadow: $drop-shadow;
+  background-color: $panel;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -1,6 +1,16 @@
 #events-page {
   height: 100%;
+
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 2em;
+}
+
+#events__div--inner-container {
+  width: 50em;
+}
+
+.events__div--event-filter-container {
+  display: flex;
+  justify-content: space-between;
 }
