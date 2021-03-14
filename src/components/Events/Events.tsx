@@ -7,12 +7,10 @@ import {
 import EventFilter from "./EventFilter/EventFilter";
 import EventCard from "./EventCard/EventCard";
 import { AppContext } from "../../context/context";
-import { loginUser } from "../../context/actions/UserActions";
 
 const Events = () => {
   const {
     state: { user },
-    dispatch,
   } = useContext(AppContext);
   const [events, setEvents] = useState<TEvent[]>([]);
   const [selectedFilter, setSelectedFilter] = useState<TEventFilters>("all");
@@ -24,19 +22,17 @@ const Events = () => {
       .then((res) => res.json())
       .then((data: TEndpointResponse) =>
         setEvents(
-          data.data.events.sort((a: TEvent, b: TEvent) =>
-            a.start_time > b.start_time ? 1 : -1
-          )
+          data.data.events
+            .filter(
+              (event: TEvent) =>
+                (user.type === "public" && event.permission !== "public") ||
+                user.type !== "public"
+            )
+            .sort((a: TEvent, b: TEvent) =>
+              a.start_time > b.start_time ? 1 : -1
+            )
         )
       );
-    console.log(user);
-    dispatch(
-      loginUser({
-        username: "ee",
-        email: "swdef",
-      })
-    );
-    console.log(user);
   }, []);
 
   useEffect(() => {

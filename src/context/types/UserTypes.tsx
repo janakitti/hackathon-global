@@ -1,6 +1,9 @@
+type UserType = "hacker" | "mentor" | "public" | "admin";
+
 export type TUserState = {
   username: string;
   email: string;
+  type: UserType;
 };
 
 export enum UserActions {

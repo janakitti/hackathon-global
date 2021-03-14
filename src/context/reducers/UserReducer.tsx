@@ -8,6 +8,7 @@ export const userReducer = (state: TUserState, action: TUserActions) => {
       return {
         username: "",
         email: "",
+        type: "public",
       };
     default:
       return state;

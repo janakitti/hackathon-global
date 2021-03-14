@@ -10,6 +10,7 @@ const initialState: TStore = {
   user: {
     username: "",
     email: "",
+    type: "public",
   },
 };
 
