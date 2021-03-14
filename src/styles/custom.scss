@@ -1,5 +1,8 @@
 $theme-colors: (
   "primary": $primary,
+  "workshop": $workshop,
+  "activity": $activity,
+  "tech_talk": $tech-talk,
 );
 
 @import "~bootstrap/scss/bootstrap";

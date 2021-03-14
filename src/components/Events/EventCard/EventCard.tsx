@@ -1,12 +1,27 @@
 import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
-import { TEvent, TSpeaker } from "../../../shared/EventTypes";
+import { TEvent, TSpeaker, TEventType } from "../../../shared/EventTypes";
 import { v4 as uuidv4 } from "uuid";
 
 interface IEventCardProps {
   event: TEvent;
 }
+
+const generateEventTypeText = (type: TEventType) => {
+  switch (type) {
+    case "workshop":
+      return <h2 className="event-type event-card__h2--workshop">WORKSHOP</h2>;
+    case "activity":
+      return <h2 className="event-type event-card__h2--activity">ACTIVITY</h2>;
+    case "tech_talk":
+      return (
+        <h2 className="event-type event-card__h2--tech_talk">TECH TALK</h2>
+      );
+    default:
+      return <h2 className="event-type event-card__h2--default">EVENT</h2>;
+  }
+};
 
 const EventCard: React.FC<IEventCardProps> = ({ event }) => {
   const related = ["Related 1", "Related 2"];
@@ -48,7 +63,7 @@ const EventCard: React.FC<IEventCardProps> = ({ event }) => {
         </div>
       </div>
       <div className="details-col">
-        <h2 className="event-type">EVENT TYPE</h2>
+        {generateEventTypeText(event.event_type)}
         <h1 className="event-title">{event.name}</h1>
         <h3 className="event-time">8:00am - 8:30pm</h3>
         <p className="event-desc">{event.description}</p>
@@ -56,7 +71,7 @@ const EventCard: React.FC<IEventCardProps> = ({ event }) => {
         <div className="event-bottom-row">
           <div className="presenter-container">{presenterImgs}</div>
           <div className="attend-button-container">
-            <Button variant="primary" className="attend-button">
+            <Button variant={event.event_type} className="attend-button">
               Attend
             </Button>
           </div>
