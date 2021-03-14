@@ -1,18 +1,28 @@
 import { useContext } from "react";
 import {
+  useHistory,
   useLocation,
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
 } from "react-router-dom";
+import { logoutUser } from "../../context/actions/UserActions";
 import { AppContext } from "../../context/context";
 
 const SideNav = () => {
   const {
     state: { user },
+    dispatch,
   } = useContext(AppContext);
   const location = useLocation();
+  const history = useHistory();
+
+  const logOut = () => {
+    dispatch(logoutUser());
+    history.push("/home");
+  };
+
   return (
     <div id="side-nav">
       <img
@@ -53,6 +63,17 @@ const SideNav = () => {
           <span>Events</span>
         </div>
       </Link>
+      {user.type === "public" ? (
+        <div className="side-nav__div--account-action">
+          <a href="/login">Log in</a> to for full access to the Dashboard!
+        </div>
+      ) : (
+        <div className="side-nav__div--account-action">
+          <a href="#" onClick={logOut}>
+            Log out
+          </a>
+        </div>
+      )}
     </div>
   );
 };

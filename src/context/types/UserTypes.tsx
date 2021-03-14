@@ -14,5 +14,5 @@ export enum UserActions {
 
 export type TUserActions = {
   type: UserActions;
-  payload: any;
+  payload?: any;
 };
