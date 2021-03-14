@@ -58,7 +58,7 @@ const Login = () => {
         />
         <form onSubmit={handleSubmit}>
           <input
-            className="login__input--text-input"
+            className="text-input mb-4"
             type="email"
             name="email"
             placeholder="Email"
@@ -67,7 +67,7 @@ const Login = () => {
             required
           ></input>
           <input
-            className="login__input--text-input"
+            className="text-input mb-4"
             type="password"
             name="password"
             placeholder="Password"

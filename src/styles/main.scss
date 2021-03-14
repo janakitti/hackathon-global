@@ -4,6 +4,7 @@
 @import "../components/Events/Events";
 @import "../components/Events/EventCard/EventCard";
 @import "../components/Events/EventFilter/EventFilter";
+@import "../components/Events/EventSearch/EventSearch";
 @import "../components/Home/Home";
 @import "../components/SideNav/SideNav";
 @import "../components/Login/Login";
@@ -16,4 +17,15 @@ body {
 
 a:link {
   text-decoration: none;
+}
+
+.text-input {
+  width: 100%;
+  height: 3em;
+
+  padding: 0 2em;
+
+  background-color: $lighter;
+  border: none;
+  border-radius: 100em;
 }

@@ -4,6 +4,7 @@ import {
   TEvent,
   TEventFilters,
 } from "../../shared/EventTypes";
+import EventSearch from "./EventSearch/EventSearch";
 import EventFilter from "./EventFilter/EventFilter";
 import EventCard from "./EventCard/EventCard";
 import { AppContext } from "../../context/context";
@@ -15,6 +16,7 @@ const Events = () => {
   const [events, setEvents] = useState<TEvent[]>([]);
   const [selectedFilter, setSelectedFilter] = useState<TEventFilters>("all");
   const [eventCards, setEventCards] = useState<JSX.Element[]>();
+  const [searchValue, setSearchValue] = useState("");
   useEffect(() => {
     fetch(
       "https://api.hackthenorth.com/v3/graphql?query={ events { id name event_type permission start_time end_time description speakers { name profile_pic } public_url private_url related_events } }"
@@ -42,13 +44,22 @@ const Events = () => {
           (event: TEvent) =>
             selectedFilter === "all" || event.event_type === selectedFilter
         )
+        .filter(
+          (event: TEvent) =>
+            event.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+            event.description?.toLowerCase().includes(searchValue.toLowerCase())
+        )
         .map((item: TEvent) => <EventCard key={item.id} event={item} />)
     );
-  }, [events, selectedFilter]);
+  }, [events, selectedFilter, searchValue]);
 
   return (
     <div id="events-page">
       <div id="events__div--inner-container">
+        <EventSearch
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+        />
         <div className="events__div--event-filter-container">
           <EventFilter
             name="All Events"
