@@ -16,10 +16,16 @@ const SideNav = () => {
       />
       <img src={user.profilePic} id="side-nav__img--pfp"></img>
       <Link to="/">
-        <div className="nav-link">Home</div>
+        <div className="nav-link">
+          <img src="/home.svg" className="side-nav__img--nav-icon" />
+          <span>Home</span>
+        </div>
       </Link>
       <Link to="/events">
-        <div className="nav-link">Events</div>
+        <div className="nav-link">
+          <img src="/events.svg" className="side-nav__img--nav-icon" />
+          <span>Events</span>
+        </div>
       </Link>
     </div>
   );

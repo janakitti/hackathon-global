@@ -18,11 +18,18 @@
 .nav-link {
   padding: 1em 2em;
   margin: 1em 0;
-
+  display: flex;
+  flex-direction: row;
+  color: $link;
+  font-weight: 400;
   text-align: left;
   border-radius: $card-border-radius;
 }
 
 .nav-link:hover {
   box-shadow: $drop-shadow;
+}
+
+.side-nav__img--nav-icon {
+  margin-right: 1em;
 }
