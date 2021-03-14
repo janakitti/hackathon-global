@@ -11,6 +11,7 @@ const initialState: TStore = {
     username: "",
     email: "",
     type: "public",
+    profilePic: "/default_pfp.svg",
   },
 };
 

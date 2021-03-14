@@ -2,40 +2,11 @@ body {
   background-color: $background;
 }
 
-.nav-link {
-  padding: 1em 2em;
-  margin: 1em 0;
-
-  text-align: left;
-  border-radius: $card-border-radius;
-}
-
-.nav-link:hover {
-  box-shadow: $drop-shadow;
-}
-
 #router-container {
   display: flex;
-}
-
-#side-nav {
-  height: 100vh;
-  width: 15em;
-  padding: 3em 2em;
-  background-color: $panel;
-  text-align: center;
 }
 
 #page-window {
   height: 100vh;
   flex-grow: 1;
-}
-
-#side-nav__img--pfp {
-  height: 6em;
-  width: 6em;
-  margin-top: 2em;
-  border-radius: 100em;
-  border: 0.5em solid $lighter;
-  box-shadow: $drop-shadow;
 }

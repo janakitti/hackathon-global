@@ -5,10 +5,11 @@ import { AppContext } from "../../context/context";
 import { loginUser } from "../../context/actions/UserActions";
 
 const mockCredentials = {
-  username: "Mr. Goose",
+  username: "Goosey",
   email: "hack@hon.com",
   password: "1234",
   type: "hacker",
+  profilePic: "/hacker_pfp.svg",
 };
 
 const Login = () => {
@@ -37,6 +38,7 @@ const Login = () => {
           username: mockCredentials.username,
           email: mockCredentials.email,
           type: "hacker",
+          profilePic: "/hacker_pfp.svg",
         })
       );
       history.push("/");

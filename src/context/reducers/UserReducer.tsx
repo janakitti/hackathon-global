@@ -9,6 +9,7 @@ export const userReducer = (state: TUserState, action: TUserActions) => {
         username: "",
         email: "",
         type: "public",
+        profilePic: "/default_pfp.svg",
       };
     default:
       return state;

@@ -4,6 +4,7 @@ export type TUserState = {
   username: string;
   email: string;
   type: UserType;
+  profilePic: string;
 };
 
 export enum UserActions {
