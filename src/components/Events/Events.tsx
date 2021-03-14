@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
-import { TEndpointResponse, TEvent } from "../../shared/EventTypes";
+import {
+  TEndpointResponse,
+  TEvent,
+  TEventFilters,
+} from "../../shared/EventTypes";
 import EventFilter from "./EventFilter/EventFilter";
 import EventCard from "./EventCard/EventCard";
 
 const Events = () => {
   const [events, setEvents] = useState<TEvent[]>([]);
+  const [selectedFilter, setSelectedFilter] = useState<TEventFilters>("all");
+  const [eventCards, setEventCards] = useState<JSX.Element[]>();
   useEffect(() => {
     fetch(
       "https://api.hackthenorth.com/v3/graphql?query={ events { id name event_type permission start_time end_time description speakers { name profile_pic } public_url private_url related_events } }"
@@ -19,9 +25,16 @@ const Events = () => {
       );
   }, []);
 
-  const eventCards = events.map((item: TEvent) => (
-    <EventCard key={item.id} event={item} />
-  ));
+  useEffect(() => {
+    setEventCards(
+      events
+        .filter(
+          (event: TEvent) =>
+            selectedFilter === "all" || event.event_type === selectedFilter
+        )
+        .map((item: TEvent) => <EventCard key={item.id} event={item} />)
+    );
+  }, [events, selectedFilter]);
 
   return (
     <div id="events-page">
@@ -31,21 +44,25 @@ const Events = () => {
             name="All Events"
             imgUrl="/all_events.svg"
             color="event-filter__div--all-events"
+            setSelectedFilter={() => setSelectedFilter("all")}
           />
           <EventFilter
             name="Workshops"
             imgUrl="/workshops.svg"
             color="event-filter__div--workshops"
+            setSelectedFilter={() => setSelectedFilter("workshop")}
           />
           <EventFilter
             name="Activities"
             imgUrl="/activities.svg"
             color="event-filter__div--activities"
+            setSelectedFilter={() => setSelectedFilter("activity")}
           />
           <EventFilter
             name="Tech Talks"
             imgUrl="/tech_talks.svg"
             color="event-filter__div--tech-talks"
+            setSelectedFilter={() => setSelectedFilter("tech_talk")}
           />
         </div>
 
