@@ -9,7 +9,7 @@ const mockCredentials = {
   email: "hack@hon.com",
   password: "1234",
   type: "hacker",
-  profilePic: "/hacker_pfp.svg",
+  profilePic: "./hacker_pfp.svg",
 };
 
 const Login = () => {
@@ -38,7 +38,7 @@ const Login = () => {
           username: mockCredentials.username,
           email: mockCredentials.email,
           type: "hacker",
-          profilePic: "/hacker_pfp.svg",
+          profilePic: "./hacker_pfp.svg",
         })
       );
       history.push("/");
@@ -51,7 +51,7 @@ const Login = () => {
     <div id="login__div--login-wrapper">
       <div id="login__div--login-card">
         <img
-          src="/logo_1.svg"
+          src="./logo_1.svg"
           className="login__h1--logo"
           width={150}
           height={150}

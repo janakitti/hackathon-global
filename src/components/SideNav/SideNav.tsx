@@ -20,13 +20,13 @@ const SideNav = () => {
 
   const logOut = () => {
     dispatch(logoutUser());
-    history.push("/home");
+    history.push("/");
   };
 
   return (
     <div id="side-nav">
       <img
-        src={"/logo_1.svg"}
+        src={"./logo_1.svg"}
         className="login__h1--logo"
         width={100}
         height={100}
@@ -40,7 +40,9 @@ const SideNav = () => {
           }
         >
           <img
-            src={location.pathname === "/" ? "/home_selected.svg" : "/home.svg"}
+            src={
+              location.pathname === "/" ? "./home_selected.svg" : "./home.svg"
+            }
             className="side-nav__img--nav-icon"
           />
           <span>Home</span>
@@ -55,8 +57,8 @@ const SideNav = () => {
           <img
             src={
               location.pathname === "/events"
-                ? "/events_selected.svg"
-                : "/events.svg"
+                ? "./events_selected.svg"
+                : "./events.svg"
             }
             className="side-nav__img--nav-icon"
           />
@@ -65,7 +67,7 @@ const SideNav = () => {
       </Link>
       {user.type === "public" ? (
         <div className="side-nav__div--account-action">
-          <a href="/login">Log in</a> to for full access to the Dashboard!
+          <a href="#/login">Log in</a> to for full access to the Dashboard!
         </div>
       ) : (
         <div className="side-nav__div--account-action">

@@ -11,7 +11,7 @@ const initialState: TStore = {
     username: "Guest Hacker",
     email: "",
     type: "public",
-    profilePic: "/default_pfp.svg",
+    profilePic: "./default_pfp.svg",
   },
 };
 

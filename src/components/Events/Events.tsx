@@ -72,25 +72,25 @@ const Events = () => {
         <div className="events__div--event-filter-container">
           <EventFilter
             name="All Events"
-            imgUrl="/all_events.svg"
+            imgUrl="./all_events.svg"
             color="event-filter__div--all-events"
             setSelectedFilter={() => setSelectedFilter("all")}
           />
           <EventFilter
             name="Workshops"
-            imgUrl="/workshops.svg"
+            imgUrl="./workshops.svg"
             color="event-filter__div--workshops"
             setSelectedFilter={() => setSelectedFilter("workshop")}
           />
           <EventFilter
             name="Activities"
-            imgUrl="/activities.svg"
+            imgUrl="./activities.svg"
             color="event-filter__div--activities"
             setSelectedFilter={() => setSelectedFilter("activity")}
           />
           <EventFilter
             name="Tech Talks"
-            imgUrl="/tech_talks.svg"
+            imgUrl="./tech_talks.svg"
             color="event-filter__div--tech-talks"
             setSelectedFilter={() => setSelectedFilter("tech_talk")}
           />
