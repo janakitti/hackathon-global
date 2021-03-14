@@ -7,6 +7,7 @@ import { DateTime } from "luxon";
 
 interface IEventCardProps {
   event: TEvent;
+  eventsMap: Map<number, string>;
 }
 
 const generateEventTypeText = (type: TEventType) => {
@@ -24,8 +25,8 @@ const generateEventTypeText = (type: TEventType) => {
   }
 };
 
-const EventCard: React.FC<IEventCardProps> = ({ event }) => {
-  const related = ["Related 1", "Related 2"];
+const EventCard: React.FC<IEventCardProps> = ({ event, eventsMap }) => {
+  console.log(eventsMap);
   const presenterImgs = event.speakers.map((speaker: TSpeaker) => (
     <OverlayTrigger
       key={uuidv4()}
@@ -48,9 +49,9 @@ const EventCard: React.FC<IEventCardProps> = ({ event }) => {
     </OverlayTrigger>
   ));
 
-  const relatedPills = related.map((name: string) => (
+  const relatedPills = event.related_events.map((id: number) => (
     <div key={uuidv4()} className="related-pill">
-      {name}
+      {eventsMap.get(id)}
     </div>
   ));
 

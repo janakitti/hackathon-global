@@ -17,12 +17,19 @@ const Events = () => {
   const [selectedFilter, setSelectedFilter] = useState<TEventFilters>("all");
   const [eventCards, setEventCards] = useState<JSX.Element[]>();
   const [searchValue, setSearchValue] = useState("");
+  const [eventsMap, setEventsMap] = useState<Map<number, string>>(new Map());
   useEffect(() => {
     fetch(
       "https://api.hackthenorth.com/v3/graphql?query={ events { id name event_type permission start_time end_time description speakers { name profile_pic } public_url private_url related_events } }"
     )
       .then((res) => res.json())
-      .then((data: TEndpointResponse) =>
+      .then((data: TEndpointResponse) => {
+        data.data.events.forEach((event: TEvent) =>
+          setEventsMap((prevState: Map<number, string>) => {
+            prevState.set(event.id, event.name);
+            return prevState;
+          })
+        );
         setEvents(
           data.data.events
             .filter(
@@ -33,8 +40,8 @@ const Events = () => {
             .sort((a: TEvent, b: TEvent) =>
               a.start_time > b.start_time ? 1 : -1
             )
-        )
-      );
+        );
+      });
   }, []);
 
   useEffect(() => {
@@ -49,7 +56,9 @@ const Events = () => {
             event.name.toLowerCase().includes(searchValue.toLowerCase()) ||
             event.description?.toLowerCase().includes(searchValue.toLowerCase())
         )
-        .map((item: TEvent) => <EventCard key={item.id} event={item} />)
+        .map((item: TEvent) => (
+          <EventCard key={item.id} event={item} eventsMap={eventsMap} />
+        ))
     );
   }, [events, selectedFilter, searchValue]);
 
