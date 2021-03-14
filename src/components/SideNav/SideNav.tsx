@@ -1,11 +1,18 @@
 import { useContext } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  useLocation,
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from "react-router-dom";
 import { AppContext } from "../../context/context";
 
 const SideNav = () => {
   const {
     state: { user },
   } = useContext(AppContext);
+  const location = useLocation();
   return (
     <div id="side-nav">
       <img
@@ -16,14 +23,32 @@ const SideNav = () => {
       />
       <img src={user.profilePic} id="side-nav__img--pfp"></img>
       <Link to="/">
-        <div className="nav-link">
-          <img src="/home.svg" className="side-nav__img--nav-icon" />
+        <div
+          className={
+            location.pathname === "/" ? "nav-link selected" : "nav-link"
+          }
+        >
+          <img
+            src={location.pathname === "/" ? "/home_selected.svg" : "/home.svg"}
+            className="side-nav__img--nav-icon"
+          />
           <span>Home</span>
         </div>
       </Link>
       <Link to="/events">
-        <div className="nav-link">
-          <img src="/events.svg" className="side-nav__img--nav-icon" />
+        <div
+          className={
+            location.pathname === "/events" ? "nav-link selected" : "nav-link"
+          }
+        >
+          <img
+            src={
+              location.pathname === "/events"
+                ? "/events_selected.svg"
+                : "/events.svg"
+            }
+            className="side-nav__img--nav-icon"
+          />
           <span>Events</span>
         </div>
       </Link>

@@ -30,6 +30,11 @@
   box-shadow: $drop-shadow;
 }
 
+.selected {
+  background-color: $primary;
+  color: #ffffff;
+}
+
 .side-nav__img--nav-icon {
   margin-right: 1em;
 }
