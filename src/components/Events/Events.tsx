@@ -10,7 +10,13 @@ const Events = () => {
       "https://api.hackthenorth.com/v3/graphql?query={ events { id name event_type permission start_time end_time description speakers { name profile_pic } public_url private_url related_events } }"
     )
       .then((res) => res.json())
-      .then((data: TEndpointResponse) => setEvents(data.data.events));
+      .then((data: TEndpointResponse) =>
+        setEvents(
+          data.data.events.sort((a: TEvent, b: TEvent) =>
+            a.start_time > b.start_time ? 1 : -1
+          )
+        )
+      );
   }, []);
 
   const eventCards = events.map((item: TEvent) => (
