@@ -18,10 +18,15 @@ const Events = () => {
   const [eventCards, setEventCards] = useState<JSX.Element[]>();
   const [searchValue, setSearchValue] = useState("");
   const [eventsMap, setEventsMap] = useState<Map<number, string>>(new Map());
+  const url =
+    "https://api.hackthenorth.com/v3/graphql?query={ events { id name event_type permission start_time end_time description speakers { name profile_pic } public_url private_url related_events } }";
   useEffect(() => {
-    fetch(
-      "https://api.hackthenorth.com/v3/graphql?query={ events { id name event_type permission start_time end_time description speakers { name profile_pic } public_url private_url related_events } }"
-    )
+    fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
       .then((res) => res.json())
       .then((data: TEndpointResponse) => {
         data.data.events.forEach((event: TEvent) =>
