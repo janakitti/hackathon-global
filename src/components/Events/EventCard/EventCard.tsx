@@ -84,6 +84,7 @@ const EventCard: React.FC<IEventCardProps> = ({ event, eventsMap }) => {
           )}
         </h3>
         <p className="event-desc">{event.description}</p>
+        <p className="event-related-text">Related events</p>
         <div className="event-bottom-row">{relatedPills}</div>
         <div className="event-bottom-row">
           <div className="presenter-container">{presenterImgs}</div>
