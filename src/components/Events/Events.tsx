@@ -7,6 +7,7 @@ import {
 import EventSearch from "./EventSearch/EventSearch";
 import EventFilter from "./EventFilter/EventFilter";
 import EventCard from "./EventCard/EventCard";
+import Spinner from "react-bootstrap/Spinner";
 import { AppContext } from "../../context/context";
 
 const Events = () => {
@@ -18,9 +19,11 @@ const Events = () => {
   const [eventCards, setEventCards] = useState<JSX.Element[]>();
   const [searchValue, setSearchValue] = useState("");
   const [eventsMap, setEventsMap] = useState<Map<number, string>>(new Map());
+  const [isLoading, setIsLoading] = useState(false);
   const url =
     "https://api.hackthenorth.com/v3/graphql?query={ events { id name event_type permission start_time end_time description speakers { name profile_pic } public_url private_url related_events } }";
   useEffect(() => {
+    setIsLoading(true);
     fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -46,6 +49,10 @@ const Events = () => {
               a.start_time > b.start_time ? 1 : -1
             )
         );
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setIsLoading(false);
       });
   }, []);
 
@@ -100,7 +107,15 @@ const Events = () => {
             setSelectedFilter={() => setSelectedFilter("tech_talk")}
           />
         </div>
-        {eventCards}
+        {isLoading ? (
+          <div id="events__spinner--spinner-container">
+            <Spinner animation="border" role="status" variant="primary">
+              <span className="sr-only">Loading...</span>
+            </Spinner>
+          </div>
+        ) : (
+          <>{eventCards}</>
+        )}
       </div>
     </div>
   );
