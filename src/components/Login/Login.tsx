@@ -52,6 +52,7 @@ const Login = () => {
       <div id="login__div--login-card">
         <img
           src="./logo_1.svg"
+          alt="logo"
           className="login__h1--logo"
           width={150}
           height={150}

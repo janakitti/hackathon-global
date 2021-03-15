@@ -123,7 +123,12 @@ const Events = () => {
               eventCards
             ) : (
               <div className="events__div--container ">
-                <img src="./empty.svg" height={300} width={300} />
+                <img
+                  src="./empty.svg"
+                  alt="no events"
+                  height={300}
+                  width={300}
+                />
                 <br />
                 <span>No events found</span>
               </div>

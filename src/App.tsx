@@ -1,6 +1,5 @@
-import React from "react";
 import "./styles/main.scss";
-import { Router, Switch, Route, Link, HashRouter } from "react-router-dom";
+import { Switch, Route, HashRouter } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Events from "./components/Events/Events";
 import Login from "./components/Login/Login";

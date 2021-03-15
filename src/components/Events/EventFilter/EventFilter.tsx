@@ -1,5 +1,3 @@
-import { TEventFilters } from "../../../shared/EventTypes";
-
 interface IEventFilterProps {
   name: string;
   imgUrl: string;

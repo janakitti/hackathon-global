@@ -30,11 +30,16 @@ const SideNav = () => {
       <div id="side-nav">
         <img
           src={"./logo_1.svg"}
+          alt="logo"
           className="login__h1--logo"
           width={100}
           height={100}
         />
-        <img src={user.profilePic} id="side-nav__img--pfp"></img>
+        <img
+          src={user.profilePic}
+          alt="user profile"
+          id="side-nav__img--pfp"
+        ></img>
         <h1 id="side-nav__h1--username">{user.username}</h1>
         <Link to="/">
           <div
@@ -46,6 +51,7 @@ const SideNav = () => {
               src={
                 location.pathname === "/" ? "./home_selected.svg" : "./home.svg"
               }
+              alt="home"
               className="side-nav__img--nav-icon"
             />
             <span>Home</span>
@@ -63,6 +69,7 @@ const SideNav = () => {
                   ? "./events_selected.svg"
                   : "./events.svg"
               }
+              alt="events"
               className="side-nav__img--nav-icon"
             />
             <span>Events</span>
@@ -94,6 +101,7 @@ const SideNav = () => {
         {
           <img
             src="./drink_water.svg"
+            alt="drink water"
             height={100}
             width={100}
             id="side-nav__img--drink-water"
