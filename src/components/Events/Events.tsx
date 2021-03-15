@@ -16,7 +16,7 @@ const Events = () => {
   } = useContext(AppContext);
   const [events, setEvents] = useState<TEvent[]>([]);
   const [selectedFilter, setSelectedFilter] = useState<TEventFilters>("all");
-  const [eventCards, setEventCards] = useState<JSX.Element[]>();
+  const [eventCards, setEventCards] = useState<JSX.Element[]>([]);
   const [searchValue, setSearchValue] = useState("");
   const [eventsMap, setEventsMap] = useState<Map<number, string>>(new Map());
   const [isLoading, setIsLoading] = useState(false);
@@ -108,13 +108,23 @@ const Events = () => {
           />
         </div>
         {isLoading ? (
-          <div id="events__spinner--spinner-container">
+          <div className="events__div--container ">
             <Spinner animation="border" role="status" variant="primary">
               <span className="sr-only">Loading...</span>
             </Spinner>
           </div>
         ) : (
-          <>{eventCards}</>
+          <>
+            {eventCards.length > 0 ? (
+              eventCards
+            ) : (
+              <div className="events__div--container ">
+                <img src="./empty.svg" height={300} width={300} />
+                <br />
+                <span>No events found</span>
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>
