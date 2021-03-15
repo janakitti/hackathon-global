@@ -4,6 +4,7 @@ interface IEventFilterProps {
   name: string;
   imgUrl: string;
   color: string;
+  isSelected: boolean;
   setSelectedFilter: () => void;
 }
 
@@ -11,6 +12,7 @@ const EventFilter: React.FC<IEventFilterProps> = ({
   name,
   imgUrl,
   color,
+  isSelected,
   setSelectedFilter,
 }) => {
   return (
@@ -18,6 +20,7 @@ const EventFilter: React.FC<IEventFilterProps> = ({
       className="event-filter__div--filter-card"
       style={{
         backgroundImage: `url("` + imgUrl + `")`,
+        width: `${isSelected ? "15em" : "10em"}`,
       }}
       onClick={setSelectedFilter}
     >

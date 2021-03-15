@@ -9,10 +9,11 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  transition: 1s;
 }
 
 .event-filter__div--filter-card-color {
-  width: 10em;
+  width: 100%;
   padding: 2em;
   border-radius: $card-border-radius;
   box-shadow: $drop-shadow;

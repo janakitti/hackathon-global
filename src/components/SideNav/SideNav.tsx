@@ -67,7 +67,7 @@ const SideNav = () => {
       </Link>
       {user.type === "public" ? (
         <div className="side-nav__div--account-action">
-          <a href="#/login">Log in</a> to for full access to the Dashboard!
+          <a href="#/login">Log in</a> for full access to the Dashboard!
         </div>
       ) : (
         <div className="side-nav__div--account-action">
