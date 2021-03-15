@@ -1,12 +1,5 @@
-import { useContext, useState } from "react";
-import {
-  useHistory,
-  useLocation,
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-} from "react-router-dom";
+import { useContext } from "react";
+import { useHistory, useLocation, Link } from "react-router-dom";
 import { logoutUser } from "../../context/actions/UserActions";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
@@ -81,9 +74,9 @@ const SideNav = () => {
           </div>
         ) : (
           <div className="side-nav__div--account-action">
-            <a href="#" onClick={logOut}>
+            <p onClick={logOut} id="side-nav__p--logout">
               Log out
-            </a>
+            </p>
           </div>
         )}
       </div>

@@ -51,6 +51,11 @@
   padding-top: 3em;
 }
 
+#side-nav__p--logout {
+  color: $primary;
+  cursor: pointer;
+}
+
 #side-nav__img--drink-water {
   position: fixed;
   bottom: 0;

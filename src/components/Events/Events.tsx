@@ -54,7 +54,7 @@ const Events = () => {
       .catch(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [user.type]);
 
   useEffect(() => {
     setEventCards(
@@ -72,7 +72,7 @@ const Events = () => {
           <EventCard key={item.id} event={item} eventsMap={eventsMap} />
         ))
     );
-  }, [events, selectedFilter, searchValue]);
+  }, [events, selectedFilter, searchValue, eventsMap]);
 
   return (
     <div className="dashboard__div--page">
