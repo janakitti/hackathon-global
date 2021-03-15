@@ -46,7 +46,9 @@ const EventCard: React.FC<IEventCardProps> = ({ event, eventsMap }) => {
       {speaker.profile_pic ? (
         <img src={speaker.profile_pic} className="presenter-pfp" />
       ) : (
-        <div className="presenter-pfp default-presenter-pfp">
+        <div
+          className={`presenter-pfp default-presenter-pfp pfp-color-${event.event_type}`}
+        >
           {speaker.name.slice(0, 1)}
         </div>
       )}
