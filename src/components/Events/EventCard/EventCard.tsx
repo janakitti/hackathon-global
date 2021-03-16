@@ -81,9 +81,8 @@ const EventCard: React.FC<IEventCardProps> = ({ event, eventsMap }) => {
   const relatedPills = event.related_events.map((id: number) => {
     if (eventsMap.get(id)?.url) {
       return (
-        <a href={eventsMap.get(id)?.url} target="_blank">
+        <a href={eventsMap.get(id)?.url} target="_blank" key={uuidv4()}>
           <div
-            key={uuidv4()}
             className={`event-card__related-pill event-card__related-pill--active event-card__related-pill--${event.event_type}`}
           >
             {eventsMap.get(id)?.name}

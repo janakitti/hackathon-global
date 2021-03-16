@@ -102,6 +102,7 @@ const Events = () => {
       color={`event-filter__div--${filter.value}`}
       isSelected={selectedFilter === filter.value}
       setSelectedFilter={() => setSelectedFilter(filter.value)}
+      key={filter.value}
     />
   ));
 
