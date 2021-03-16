@@ -1,4 +1,4 @@
-.event-filter__div--filter-card {
+.event-filter__card {
   display: flex;
   width: 10em;
   margin-bottom: 1em;
@@ -13,7 +13,7 @@
   transition: 1s;
 }
 
-.event-filter__div--filter-card-color {
+.event-filter__card-color {
   width: 100%;
   padding: 2em;
   border-radius: $card-border-radius;

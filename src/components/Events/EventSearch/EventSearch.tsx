@@ -8,7 +8,7 @@ const EventSearch: React.FC<IEventSearchProps> = ({
   setSearchValue,
 }) => {
   return (
-    <div id="event-search__div--card">
+    <div id="event-search__card">
       <input
         className="text-input"
         type="text"
@@ -19,7 +19,7 @@ const EventSearch: React.FC<IEventSearchProps> = ({
           setSearchValue(event.target.value)
         }
         required
-      ></input>
+      />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-.event-card {
+.event-card__card {
   display: flex;
   padding: 2em;
   width: 100%;
@@ -8,7 +8,7 @@
   background-color: $panel;
 }
 
-.date-col {
+.event-card__date-col {
   display: flex;
   justify-content: center;
   padding-right: 2em;
@@ -16,7 +16,7 @@
   height: 100%;
 }
 
-.cal-container {
+.event-card__cal-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -29,7 +29,7 @@
   background-color: $lighter;
 }
 
-.cal-month {
+.event-card__cal-month {
   display: block;
   font-size: 1em;
   font-weight: 700;
@@ -38,7 +38,7 @@
   text-align: center;
 }
 
-.cal-date {
+.event-card__cal-date {
   display: block;
   font-size: 1.6em;
   font-weight: 700;
@@ -47,12 +47,12 @@
   text-align: center;
 }
 
-.details-col {
+.event-card__details-col {
   flex: 1;
   height: 100%;
 }
 
-.event-type {
+.event-card__event-type {
   font-size: 1em;
   font-weight: 700;
   letter-spacing: 0.4em;
@@ -71,34 +71,34 @@
   color: $default-event;
 }
 
-.event-title {
+.event-card__title {
   font-size: 1.5em;
   font-weight: 700;
 }
 
-.event-time {
+.event-card__time {
   font-size: 0.8em;
   font-weight: 300;
 }
 
-.event-desc {
+.event-card__desc {
   font-size: 0.8em;
   font-weight: 400;
   color: $light;
 }
 
-.event-bottom-row {
+.event-card__bottom-row {
   display: flex;
   flex-wrap: wrap;
 }
 
-.event-related-text {
+.event-card__related {
   font-size: 0.8em;
   font-weight: 700;
   color: $light;
 }
 
-.related-pill {
+.event-card__related-pill {
   background-color: $lighter;
   color: $light;
   font-size: 0.8em;
@@ -107,15 +107,15 @@
   border-radius: 100em;
 }
 
-.attend-button-container {
+.event-card__attend-button-container {
   flex: 1;
 }
 
-.attend-button {
+.event-card__attend-button {
   float: right;
 }
 
-.presenter-pfp {
+.event-card__presenter-pfp {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -127,22 +127,22 @@
   box-shadow: $drop-shadow;
 }
 
-.default-presenter-pfp {
+.event-card__default-presenter-pfp {
   background-color: $lighter;
   color: $light;
 }
 
-.pfp-color-workshop {
+.event-card__pfp-color-workshop {
   background-color: $workshop;
   color: #ffffff;
 }
 
-.pfp-color-activity {
+.event-card__pfp-color-activity {
   background-color: $activity;
   color: #ffffff;
 }
 
-.pfp-color-tech_talk {
+.event-card__pfp-color-tech_talk {
   background-color: $tech-talk;
   color: #ffffff;
 }

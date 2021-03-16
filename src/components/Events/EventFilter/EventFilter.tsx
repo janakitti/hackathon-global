@@ -15,14 +15,14 @@ const EventFilter: React.FC<IEventFilterProps> = ({
 }) => {
   return (
     <div
-      className="event-filter__div--filter-card"
+      className="event-filter__card"
       style={{
         backgroundImage: `url("` + imgUrl + `")`,
         width: `${isSelected ? "15em" : "10em"}`,
       }}
       onClick={setSelectedFilter}
     >
-      <div className={`event-filter__div--filter-card-color ${color}`}>
+      <div className={`event-filter__card-color ${color}`}>
         {name}
       </div>
     </div>

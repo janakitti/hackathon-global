@@ -15,15 +15,15 @@ interface IEventCardProps {
 const generateEventTypeText = (type: TEventType) => {
   switch (type) {
     case "workshop":
-      return <h2 className="event-type event-card__h2--workshop">WORKSHOP</h2>;
+      return <h2 className="event-card__event-type event-card__h2--workshop">WORKSHOP</h2>;
     case "activity":
-      return <h2 className="event-type event-card__h2--activity">ACTIVITY</h2>;
+      return <h2 className="event-card__event-type event-card__h2--activity">ACTIVITY</h2>;
     case "tech_talk":
       return (
-        <h2 className="event-type event-card__h2--tech_talk">TECH TALK</h2>
+        <h2 className="event-card__event-type event-card__h2--tech_talk">TECH TALK</h2>
       );
     default:
-      return <h2 className="event-type event-card__h2--default">EVENT</h2>;
+      return <h2 className="event-card__event-type event-card__h2--default">EVENT</h2>;
   }
 };
 
@@ -47,11 +47,11 @@ const EventCard: React.FC<IEventCardProps> = ({ event, eventsMap }) => {
         <img
           src={speaker.profile_pic}
           alt="speaker profile"
-          className="presenter-pfp"
+          className="event-card__presenter-pfp"
         />
       ) : (
         <div
-          className={`presenter-pfp default-presenter-pfp pfp-color-${event.event_type}`}
+          className={`event-card__presenter-pfp event-card__default-presenter-pfp event-card__pfp-color-${event.event_type}`}
         >
           {speaker.name.slice(0, 1)}
         </div>
@@ -60,27 +60,27 @@ const EventCard: React.FC<IEventCardProps> = ({ event, eventsMap }) => {
   ));
 
   const relatedPills = event.related_events.map((id: number) => (
-    <div key={uuidv4()} className="related-pill">
+    <div key={uuidv4()} className="event-card__related-pill">
       {eventsMap.get(id)}
     </div>
   ));
 
   return (
-    <div className="event-card">
-      <div className="date-col">
-        <div className="cal-container">
-          <span className="cal-month">
+    <div className="event-card__card">
+      <div className="event-card__date-col">
+        <div className="event-card__cal-container">
+          <span className="event-card__cal-month">
             {DateTime.fromMillis(event.start_time).monthShort.toUpperCase()}
           </span>
-          <span className="cal-date">
+          <span className="event-card__cal-date">
             {DateTime.fromMillis(event.start_time).day}
           </span>
         </div>
       </div>
-      <div className="details-col">
+      <div className="event-card__details-col">
         {generateEventTypeText(event.event_type)}
-        <h1 className="event-title">{event.name}</h1>
-        <h3 className="event-time">
+        <h1 className="event-card__title">{event.name}</h1>
+        <h3 className="event-card__time">
           {DateTime.fromMillis(event.start_time).toLocaleString(
             DateTime.TIME_SIMPLE
           )}
@@ -89,15 +89,15 @@ const EventCard: React.FC<IEventCardProps> = ({ event, eventsMap }) => {
             DateTime.TIME_SIMPLE
           )}
         </h3>
-        <p className="event-desc">{event.description}</p>
-        <p className="event-related-text">Related events</p>
-        <div className="event-bottom-row">{relatedPills}</div>
-        <div className="event-bottom-row">
+        <p className="event-card__desc">{event.description}</p>
+        <p className="event-card__related">Related events</p>
+        <div className="event-card__bottom-row">{relatedPills}</div>
+        <div className="event-card__bottom-row">
           <div className="presenter-container">{presenterImgs}</div>
-          <div className="attend-button-container">
+          <div className="event-card__attend-button-container">
             <Button
               variant={event.event_type}
-              className="attend-button"
+              className="event-card__attend-button"
               href={
                 user.type === "public" ? event.public_url : event.private_url
               }

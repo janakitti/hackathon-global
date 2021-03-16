@@ -81,7 +81,7 @@ const Events = () => {
           searchValue={searchValue}
           setSearchValue={setSearchValue}
         />
-        <div className="events__div--event-filter-container">
+        <div className="events__filter-container">
           <EventFilter
             name="All Events"
             imgUrl="./all_events.svg"
@@ -112,7 +112,7 @@ const Events = () => {
           />
         </div>
         {isLoading ? (
-          <div className="events__div--container ">
+          <div className="events__container ">
             <Spinner animation="border" role="status" variant="primary">
               <span className="sr-only">Loading...</span>
             </Spinner>
@@ -122,7 +122,7 @@ const Events = () => {
             {eventCards.length > 0 ? (
               eventCards
             ) : (
-              <div className="events__div--container ">
+              <div className="events__container">
                 <img
                   src="./empty.svg"
                   alt="no events"
