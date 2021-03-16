@@ -1,12 +1,14 @@
 // Each event will belong to one of the following types
 export type TEventType = "workshop" | "activity" | "tech_talk";
 
+// "all" type used for resetting filters
 export type TEventFilters = "all" | TEventType;
 
+// For displaying filter options with a user-friendly name
 export type TEventFilterDisplay = {
-  name: string,
-  value: TEventFilters
-}
+  name: string;
+  value: TEventFilters;
+};
 
 export type TPermission = "public" | "private";
 

@@ -5,6 +5,7 @@ const Home = () => {
   const {
     state: { user },
   } = useContext(AppContext);
+
   return (
     <div className="dashboard__div--page">
       <div className="dashboard__div--inner-container">

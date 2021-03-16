@@ -21,6 +21,7 @@ const Login = () => {
   });
   const [loginError, setLoginError] = useState("");
 
+  // Update user state on login form input change
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
@@ -76,11 +77,7 @@ const Login = () => {
             onChange={handleChange}
             required
           ></input>
-          <Button
-            variant="primary"
-            type="submit"
-            id="login__login-button"
-          >
+          <Button variant="primary" type="submit" id="login__login-button">
             Log in
           </Button>
         </form>

@@ -18,10 +18,12 @@ const Events = () => {
   } = useContext(AppContext);
   const [searchValue, setSearchValue] = useState("");
   const [selectedFilter, setSelectedFilter] = useState<TEventFilters>("all");
-  const [events, setEvents] = useState<TEvent[]>([]);
-  const [eventCards, setEventCards] = useState<JSX.Element[]>([]);
+  const [events, setEvents] = useState<TEvent[]>([]); // Raw events data
+  const [eventCards, setEventCards] = useState<JSX.Element[]>([]); // EventCard components to display
   const [eventsMap, setEventsMap] = useState<Map<number, string>>(new Map()); // Maps TEvent.id to TEvent.name
   const [isLoading, setIsLoading] = useState(false);
+
+  // Assign user-friendly names to the event types
   const filterValues: TEventFilterDisplay[] = [
     { name: "All Events", value: "all" },
     { name: "Workshops", value: "workshop" },
@@ -29,6 +31,7 @@ const Events = () => {
     { name: "Tech Talks", value: "tech_talk" },
   ];
 
+  // Fetch events data
   useEffect(() => {
     setIsLoading(true);
     fetch(EVENTS_ENDPOINT, {
@@ -66,7 +69,7 @@ const Events = () => {
       });
   }, [user.type]);
 
-  // Update displayed events on search or filter selection
+  // Update displayed events, filtering by event type, then search value
   useEffect(() => {
     setEventCards(
       events
