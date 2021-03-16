@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# Hackathon Global
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Part 1
 
-## Available Scripts
+### How did you plan out the structure and design of it? How did decide on the tools you've used?
 
-In the project directory, you can run:
+The design of the UI was done using Figma. I wanted to created an app that was minimalist yet highly scalable. I decided to stick with the traditional side navbar + dashboard style, similar to the designed used for the Attendee Dashboard for Hack the North 2020++.
 
-### `yarn start`
+I chose to use React for its simplicity and flexibility. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I found that the pros outweighed the cons when it came to using TypeScript over JavaScript. I value having structure in my code with the use of types and interfaces.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+When thinking about how to implement a login system, I decided to use Context API as a way to store the current user data and have it be accesible throughout the app. There were several scalability considerations I made when implementing context. Although the context was really only needed to store the user data for this project, I kept the structure of the context as general as possible, leaving it open for adding more states in the future (i.e. UI theming/preferences). In my `context` directory, I seperated my files into `types`, `actions`, and `reducers` so that the concerns of each major state in the context (i.e. user state) can be seperated.
 
-### `yarn test`
+### Did you encounter any problems? And if so, how did you solve them?
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Routing on GitHub Pages
 
-### `yarn build`
+I ran into some issues with routing after deploying my app to GitHub Pages. I initially had my routes wrapped in a `BrowserRouter `, however upon reading the `react-router-dom` docs, I realized that GitHub Pages doesn’t support routers that use the HTML5 `pushState` history API. So the issue was that when GitHub Pages saw a route like `http://janakitti.github.io/hackathon-global/events`, it returned a `404` since `/events` was not a valid route. The solution was to switch to using routing with hashes, using the `HashRouter`. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Are there any areas of your code that you're particularly proud of or want to point out?
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Context Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Although somewhat tedious, I thought that my efforts into generalizing the structure of my context payed off. While seperating the user state, actions, and reducers from the main context file may have been more than enough for the purposes of keeping track of the user, I think it makes it so much easier for future developers to scale the app and easily add more states.
 
-### `yarn eject`
+###
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### UI Design
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I had a really great time coming up with the design for the app. I'm pretty happy with the overall design language and style consistency. Since the core functionality of the app is to display events, I thought that having each of the event types (workshop, activity, tech-talk) be colour-coded would be a visually appealing and functional way to stylize UI elements.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+I drew some inspiration from the Hack the North branding and the Attendee Dashboard with the Hackathon Global Inc. logo and the little creature at the bottom of the page to remind you to drink water!
