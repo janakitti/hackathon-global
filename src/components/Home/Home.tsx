@@ -11,7 +11,7 @@ const Home = () => {
       <div className="dashboard__div--inner-container">
         <div className="home__div--card">
           <h1 id="home__h1--welcome">
-            {user.type === "public" ? "Hey there," : "Welcome back, "}
+            {user.type === "public" ? "Hey there, " : "Welcome back, "}
             {user.username} 👋
           </h1>
         </div>
