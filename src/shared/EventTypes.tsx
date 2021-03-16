@@ -3,6 +3,11 @@ export type TEventType = "workshop" | "activity" | "tech_talk";
 
 export type TEventFilters = "all" | TEventType;
 
+export type TEventFilterDisplay = {
+  name: string,
+  value: TEventFilters
+}
+
 export type TPermission = "public" | "private";
 
 export type TSpeaker = {

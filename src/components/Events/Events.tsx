@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import {
   TEndpointResponse,
-  TEvent,
+  TEvent, TEventFilterDisplay,
   TEventFilters,
 } from "../../shared/EventTypes";
 import EventSearch from "./EventSearch/EventSearch";
@@ -14,14 +14,21 @@ const Events = () => {
   const {
     state: { user },
   } = useContext(AppContext);
-  const [events, setEvents] = useState<TEvent[]>([]);
-  const [selectedFilter, setSelectedFilter] = useState<TEventFilters>("all");
-  const [eventCards, setEventCards] = useState<JSX.Element[]>([]);
   const [searchValue, setSearchValue] = useState("");
-  const [eventsMap, setEventsMap] = useState<Map<number, string>>(new Map());
+  const [selectedFilter, setSelectedFilter] = useState<TEventFilters>("all");
+  const [events, setEvents] = useState<TEvent[]>([]);
+  const [eventCards, setEventCards] = useState<JSX.Element[]>([]);
+  const [eventsMap, setEventsMap] = useState<Map<number, string>>(new Map()); // Maps TEvent.id to TEvent.name
   const [isLoading, setIsLoading] = useState(false);
   const url =
     "https://api.hackthenorth.com/v3/graphql?query={ events { id name event_type permission start_time end_time description speakers { name profile_pic } public_url private_url related_events } }";
+  const filterValues: TEventFilterDisplay[] = [
+    {name: "All Events", value: "all"},
+    {name: "Workshops", value: "workshop"},
+    {name: "Activities", value: "activity"},
+    {name: "Tech Talks", value: "tech_talk"}
+  ]
+
   useEffect(() => {
     setIsLoading(true);
     fetch(url, {
@@ -32,12 +39,15 @@ const Events = () => {
     })
       .then((res) => res.json())
       .then((data: TEndpointResponse) => {
+        // Create mapping to be used for displaying related events
         data.data.events.forEach((event: TEvent) =>
           setEventsMap((prevState: Map<number, string>) => {
             prevState.set(event.id, event.name);
             return prevState;
           })
         );
+
+        // Apply permission filters and sort by start_time
         setEvents(
           data.data.events
             .filter(
@@ -56,6 +66,7 @@ const Events = () => {
       });
   }, [user.type]);
 
+  // Update displayed events on search or filter selection
   useEffect(() => {
     setEventCards(
       events
@@ -74,6 +85,15 @@ const Events = () => {
     );
   }, [events, selectedFilter, searchValue, eventsMap]);
 
+  const filters = filterValues.map((filter: TEventFilterDisplay) => (
+    <EventFilter
+    name={filter.name}
+    imgUrl={`./${filter.value}.svg`}
+    color={`event-filter__div--${filter.value}`}
+    isSelected={selectedFilter === filter.value}
+    setSelectedFilter={() => setSelectedFilter(filter.value)}
+  />))
+
   return (
     <div className="dashboard__div--page">
       <div className="dashboard__div--inner-container">
@@ -82,34 +102,7 @@ const Events = () => {
           setSearchValue={setSearchValue}
         />
         <div className="events__filter-container">
-          <EventFilter
-            name="All Events"
-            imgUrl="./all_events.svg"
-            color="event-filter__div--all-events"
-            isSelected={selectedFilter === "all"}
-            setSelectedFilter={() => setSelectedFilter("all")}
-          />
-          <EventFilter
-            name="Workshops"
-            imgUrl="./workshops.svg"
-            color="event-filter__div--workshops"
-            isSelected={selectedFilter === "workshop"}
-            setSelectedFilter={() => setSelectedFilter("workshop")}
-          />
-          <EventFilter
-            name="Activities"
-            imgUrl="./activities.svg"
-            color="event-filter__div--activities"
-            isSelected={selectedFilter === "activity"}
-            setSelectedFilter={() => setSelectedFilter("activity")}
-          />
-          <EventFilter
-            name="Tech Talks"
-            imgUrl="./tech_talks.svg"
-            color="event-filter__div--tech-talks"
-            isSelected={selectedFilter === "tech_talk"}
-            setSelectedFilter={() => setSelectedFilter("tech_talk")}
-          />
+          {filters}
         </div>
         {isLoading ? (
           <div className="events__container ">

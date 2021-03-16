@@ -23,18 +23,18 @@
   font-weight: 700;
 }
 
-.event-filter__div--all-events {
+.event-filter__div--all {
   background-color: rgba($primary, $event-filter-alpha);
 }
 
-.event-filter__div--workshops {
+.event-filter__div--workshop {
   background-color: rgba($workshop, $event-filter-alpha);
 }
 
-.event-filter__div--activities {
+.event-filter__div--activity {
   background-color: rgba($activity, $event-filter-alpha);
 }
 
-.event-filter__div--tech-talks {
+.event-filter__div--tech_talk {
   background-color: rgba($tech-talk, $event-filter-alpha);
 }
