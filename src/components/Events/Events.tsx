@@ -1,7 +1,8 @@
 import { useEffect, useState, useContext } from "react";
 import {
   TEndpointResponse,
-  TEvent, TEventFilterDisplay,
+  TEvent,
+  TEventFilterDisplay,
   TEventFilters,
 } from "../../shared/EventTypes";
 import EventSearch from "./EventSearch/EventSearch";
@@ -9,6 +10,7 @@ import EventFilter from "./EventFilter/EventFilter";
 import EventCard from "./EventCard/EventCard";
 import Spinner from "react-bootstrap/Spinner";
 import { AppContext } from "../../context/context";
+import { EVENTS_ENDPOINT } from "../../config.json";
 
 const Events = () => {
   const {
@@ -20,18 +22,16 @@ const Events = () => {
   const [eventCards, setEventCards] = useState<JSX.Element[]>([]);
   const [eventsMap, setEventsMap] = useState<Map<number, string>>(new Map()); // Maps TEvent.id to TEvent.name
   const [isLoading, setIsLoading] = useState(false);
-  const url =
-    "https://api.hackthenorth.com/v3/graphql?query={ events { id name event_type permission start_time end_time description speakers { name profile_pic } public_url private_url related_events } }";
   const filterValues: TEventFilterDisplay[] = [
-    {name: "All Events", value: "all"},
-    {name: "Workshops", value: "workshop"},
-    {name: "Activities", value: "activity"},
-    {name: "Tech Talks", value: "tech_talk"}
-  ]
+    { name: "All Events", value: "all" },
+    { name: "Workshops", value: "workshop" },
+    { name: "Activities", value: "activity" },
+    { name: "Tech Talks", value: "tech_talk" },
+  ];
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(url, {
+    fetch(EVENTS_ENDPOINT, {
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
@@ -87,12 +87,13 @@ const Events = () => {
 
   const filters = filterValues.map((filter: TEventFilterDisplay) => (
     <EventFilter
-    name={filter.name}
-    imgUrl={`./${filter.value}.svg`}
-    color={`event-filter__div--${filter.value}`}
-    isSelected={selectedFilter === filter.value}
-    setSelectedFilter={() => setSelectedFilter(filter.value)}
-  />))
+      name={filter.name}
+      imgUrl={`./${filter.value}.svg`}
+      color={`event-filter__div--${filter.value}`}
+      isSelected={selectedFilter === filter.value}
+      setSelectedFilter={() => setSelectedFilter(filter.value)}
+    />
+  ));
 
   return (
     <div className="dashboard__div--page">
@@ -101,9 +102,7 @@ const Events = () => {
           searchValue={searchValue}
           setSearchValue={setSearchValue}
         />
-        <div className="events__filter-container">
-          {filters}
-        </div>
+        <div className="events__filter-container">{filters}</div>
         {isLoading ? (
           <div className="events__container ">
             <Spinner animation="border" role="status" variant="primary">
