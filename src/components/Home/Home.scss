@@ -12,3 +12,54 @@
   font-weight: 700;
   font-size: 2em;
 }
+
+#home__card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.home__card {
+  display: flex;
+  width: 15em;
+  height: 15em;
+  margin-bottom: 1em;
+  border-radius: $card-border-radius;
+  box-shadow: $drop-shadow;
+  background-color: $panel;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.home__card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  font-size: 1.5em;
+  font-weight: 700;
+  box-shadow: $drop-shadow;
+  color: #ffffff;
+  text-align: center;
+}
+
+#home__card--resources {
+  background-color: rgba($primary, $event-filter-alpha);
+}
+
+#home__card--mentors {
+  background-color: rgba($activity, $event-filter-alpha);
+}
+
+#home__card--faq {
+  background-color: rgba($tech-talk, $event-filter-alpha);
+}
+
+#home__note {
+  color: $light;
+  font-size: 1em;
+}
