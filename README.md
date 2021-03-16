@@ -8,11 +8,11 @@ Check it out [⚙️](https://emojipedia.org/gear/): [janakitti.github.io/hackat
 
 #### UI Design
 
-The design of the UI was done using Figma. I wanted to create an app that was minimalist yet highly scalable. I decided to stick with the traditional side navbar + dashboard style, similar to the designed used for the Attendee Dashboard for Hack the North 2020++. I found that this layout was very general-purpose/flexible and would make it easy for developers to add on new features and users to intuitviely access these new features in the future.
+The design of the UI was done using Figma. I wanted to create a UI that was minimalist yet easily scalable. I decided to stick with the traditional side navbar + dashboard style, similar to the designed used for the Attendee Dashboard for Hack the North 2020++. I found that this layout was very flexible and would make it easy for developers to add new features and for users to intuitviely access these features in the future.
 
 #### React + TypeScript
 
-I chose to use React for its simplicity and flexibility as a UI library. When it came to deciding between TypeScript and JavaScript, I chose TypeScript. Although there was a lot of boilerplate code to set up, being able to have code completion and type hinting was helpful for writing code confidently. I also wasn't planning on using any uncommon third-party libraries for this project, so I wasn't too concerned about missing type definitions.
+I chose to use React for its simplicity and flexibility as a UI library. When it came to deciding between TypeScript and JavaScript, I chose TypeScript. Although there was a lot of boilerplate code to set up, being able to have code completion and type hinting was helpful for being able to write code confidently. I also wasn't planning on using any uncommon third-party libraries for this project, so I wasn't too concerned about missing type definitions.
 
 #### File structure
 
@@ -24,11 +24,13 @@ I used React Router for routing between the Home, Events, and Login page.
 
 #### Context API
 
-When thinking about how to implement a login system, I decided to use Context API as a way to store the current user data and have it be accesible throughout the app. There were several scalability considerations I made when implementing context. Although the context was really only needed to store the user data for this project, I kept the structure of the context as general as possible, leaving it open for adding more states in the future (i.e. UI theming/preferences). In my `context` directory, I seperated my files into `types`, `actions`, and `reducers` so that the concerns of each major state (i.e. the user state) can be seperated from each other.
+When thinking about how to implement a login system, I decided to use Context API as a way to store the current user data and have it be accessible throughout the app. Since the app itself is relatively small and doesn't require high-frequency global state updates, Context API was a better choice for state management than React Redux.
+
+There were several scalability considerations I made when implementing context. Although the context was really only needed to store the user data for this project, I kept the structure of the context as general as possible, leaving it open for adding more states in the future (for example, UI theming or user preferences). In my `/context` directory, I seperated my files into `types`, `actions`, and `reducers` so that the concerns of each major state (i.e. the user state) can be seperated from each other. These were all put together in the `context.tsx`. The `TStore` type contains all the state types and the `mainReducer` is used to generate a generalized `dispatch` function.
 
 #### Styles
 
-I adopted the Block, Element, Modifiers (BEM) methodology for naming my SCSS selectors. Using this strict naming strategy allowed me to write more meaningful class and id names, and make it much easier for future developers to quickly understand their purpose. Using BEM, each selector is made up of a Block (standalone entity), Element (element of/semantically tied to its Block), and a Modifier (a flag on the Block or Element to modify its appearance), all put together like this: `block__element--modifier`.  For example: `side-nav__nav-link--selected`.
+I adopted the Block, Element, Modifiers (BEM) methodology for naming my SCSS selectors. Using this strict naming strategy allowed me to write more meaningful class and id names, and make it much easier for future developers to quickly understand their purpose. With BEM, each selector is made up of a Block (standalone entity), Element (element of/semantically tied to its Block), and a Modifier (a flag on the Block or Element to modify its appearance), all put together like this: `block__element--modifier`.  For example: `side-nav__nav-link--selected`.
 
 #### Luxon
 
@@ -38,7 +40,7 @@ I used Luxon for formatting the event dates and times.
 
 #### Routing on GitHub Pages
 
-I ran into some issues with routing after deploying my app to GitHub Pages. I was getting a bunch of `404`s when trying to navigate across pages. I initially had my routes wrapped in a `BrowserRouter `, however upon reading the `react-router-dom` docs, I realized that GitHub Pages doesn’t support routers that use the HTML5 `pushState` history API (which is used by `BrowserRouter`). So whenever GitHub Pages saw a route like `http://janakitti.github.io/hackathon-global/events`, it returned a `404` since `/events` was not a valid route. The solution was to switch to using routing with hashes, using the `HashRouter` to wrap my routes instead. 
+I ran into some issues with routing after deploying my app to GitHub Pages. I was getting a bunch of `404`s when trying to navigate across pages. I initially had my routes wrapped in a `BrowserRouter `, however upon reading the `react-router-dom` docs, I realized that GitHub Pages doesn’t support routers that use the HTML5 `pushState` history API (which is used by `BrowserRouter`). So whenever GitHub Pages saw a route like `http://janakitti.github.io/hackathon-global/events`, it didn't recognize `/events` as a valid route. The solution was to switch to using routing with hashes, using the `HashRouter` to wrap my routes instead. 
 
 #### Responsiveness
 
@@ -48,11 +50,11 @@ You can't have a frontend project without some responsiveness challenges! Format
 
 #### Context Structure
 
-Although somewhat tedious, I thought that my efforts put into generalizing the structure of my context payed off. I think it makes it so much easier for future developers to scale the app and easily add more states.
+Although somewhat tedious, I thought that my efforts put into generalizing the structure of my context payed off. I think it makes it so much easier for future developers to scale the app and easily add more states/actions/reducers.
 
 #### UI Design
 
-I had a really great time coming up with the visual design of the app. I'm pretty happy with the overall design language and style consistency. Since the core functionality of the app is to display events, I thought that having each of the event types (workshop, activity, tech-talk) be colour-coded would be a visually appealing and functional way to stylize UI elements.
+I had a really great time coming up with the visual design of the app. I'm pretty happy with the overall design language and style consistency. Since the core functionality of the app is to display events, I thought that having each of the event types (workshop, activity, tech-talk) be colour-coded would be a visually appealing and functional way to stylize UI elements. I made sure to be cognizant of user accessibility and tried to keep the presentation of the event details as clear and distraction-free as possible.
 
 I drew some inspiration from the Hack the North branding and the Attendee Dashboard with the Hackathon Global Inc.™ logo and the little creature at the bottom of the page to remind you to drink water!
 
@@ -74,8 +76,8 @@ I'd definitely want to improve my stylesheet organization moving forwards. Impro
 
 #### Improve code consistency
 
-I would adopt tools such as ESLint to produce consistent code patterns that'll make it easier for collaboration.
+I would adopt tools such as ESLint to produce consistent code patterns that'll make it easier to catch bugs.
 
 #### Code reuse
 
-As the project grows, I might find that I end up reusing a lot of the component logic (for example, search filtering functionality), so I would definitley consider creating custom hooks to be shared by multiple components.
+As the project grows, I might find that I end up reusing a lot of the component logic (for example, event search filtering functionality might be generalizable to other searchable content). I would consider extracting this logic and creating custom hooks to be shared by multiple components.
