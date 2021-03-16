@@ -80,7 +80,7 @@ I drew some inspiration from the Hack the North branding and the Attendee Dashbo
 
 When optimizing for performance, it'll be important to consider network and CPU limitations of users. Hackathon Global Inc.™ will have users coming from across the globe, so we should expect a wide range of user geographies and device types (for example mobile, which typically has less processing power). With this in mind, I would choose to use build the app using Next.js as opposed to Create-React-App, since it supports server-side rendering (SSR). With SSR, we'll be able to send fully rendered pages to the client so that they can view content quicker.
 
-#### Seperating stateful and stateless components
+#### Seperate stateful and stateless components
 
 It would be a good idea to differentiate between components that are responsible for handling state/data versus components used purely for styling. This will allow developers to confidently work on stateful components without having to worry about messing up styles, and vice versa.
 
@@ -95,3 +95,7 @@ I would adopt tools such as ESLint to produce consistent code patterns that'll m
 #### Code reuse
 
 As the project grows, I might find that I end up reusing a lot of the component logic (for example, event search filtering functionality might be generalizable to other searchable content). I would consider extracting this logic and creating custom hooks to be shared by multiple components.
+
+#### Testing
+
+I would use tools such as React Testing Library or Jest to formally test my React components to catch bugs and make refactoring much easier.
