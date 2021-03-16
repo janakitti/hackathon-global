@@ -2,28 +2,47 @@ import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
-import { TEvent, TSpeaker, TEventType } from "../../../shared/EventTypes";
+import {
+  TEvent,
+  TSpeaker,
+  TEventType,
+  TRelatedEventLink,
+} from "../../../shared/EventTypes";
 import { v4 as uuidv4 } from "uuid";
 import { DateTime } from "luxon";
 import { AppContext } from "../../../context/context";
 
 interface IEventCardProps {
   event: TEvent;
-  eventsMap: Map<number, string>;
+  eventsMap: Map<number, TRelatedEventLink>;
 }
 
 const generateEventTypeText = (type: TEventType) => {
   switch (type) {
     case "workshop":
-      return <h2 className="event-card__event-type event-card__h2--workshop">WORKSHOP</h2>;
+      return (
+        <h2 className="event-card__event-type event-card__h2--workshop">
+          WORKSHOP
+        </h2>
+      );
     case "activity":
-      return <h2 className="event-card__event-type event-card__h2--activity">ACTIVITY</h2>;
+      return (
+        <h2 className="event-card__event-type event-card__h2--activity">
+          ACTIVITY
+        </h2>
+      );
     case "tech_talk":
       return (
-        <h2 className="event-card__event-type event-card__h2--tech_talk">TECH TALK</h2>
+        <h2 className="event-card__event-type event-card__h2--tech_talk">
+          TECH TALK
+        </h2>
       );
     default:
-      return <h2 className="event-card__event-type event-card__h2--default">EVENT</h2>;
+      return (
+        <h2 className="event-card__event-type event-card__h2--default">
+          EVENT
+        </h2>
+      );
   }
 };
 
@@ -59,11 +78,26 @@ const EventCard: React.FC<IEventCardProps> = ({ event, eventsMap }) => {
     </OverlayTrigger>
   ));
 
-  const relatedPills = event.related_events.map((id: number) => (
-    <div key={uuidv4()} className="event-card__related-pill">
-      {eventsMap.get(id)}
-    </div>
-  ));
+  const relatedPills = event.related_events.map((id: number) => {
+    if (eventsMap.get(id)?.url) {
+      return (
+        <a href={eventsMap.get(id)?.url} target="_blank">
+          <div
+            key={uuidv4()}
+            className={`event-card__related-pill event-card__related-pill--active event-card__related-pill--${event.event_type}`}
+          >
+            {eventsMap.get(id)?.name}
+          </div>
+        </a>
+      );
+    } else {
+      return (
+        <div key={uuidv4()} className="event-card__related-pill">
+          {eventsMap.get(id)?.name}
+        </div>
+      );
+    }
+  });
 
   return (
     <div className="event-card__card">

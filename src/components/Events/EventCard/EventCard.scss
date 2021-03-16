@@ -107,6 +107,22 @@
   border-radius: 100em;
 }
 
+.event-card__related-pill--active {
+  color: #ffffff;
+}
+
+.event-card__related-pill--workshop {
+  background-color: rgba($workshop, $event-filter-alpha);
+}
+
+.event-card__related-pill--activity {
+  background-color: rgba($activity, $event-filter-alpha);
+}
+
+.event-card__related-pill--tech_talk {
+  background-color: rgba($tech-talk, $event-filter-alpha);
+}
+
 .event-card__attend-button-container {
   flex: 1;
 }

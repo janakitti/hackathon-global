@@ -4,6 +4,7 @@ import {
   TEvent,
   TEventFilterDisplay,
   TEventFilters,
+  TRelatedEventLink,
 } from "../../shared/EventTypes";
 import EventSearch from "./EventSearch/EventSearch";
 import EventFilter from "./EventFilter/EventFilter";
@@ -20,7 +21,9 @@ const Events = () => {
   const [selectedFilter, setSelectedFilter] = useState<TEventFilters>("all");
   const [events, setEvents] = useState<TEvent[]>([]); // Raw events data
   const [eventCards, setEventCards] = useState<JSX.Element[]>([]); // EventCard components to display
-  const [eventsMap, setEventsMap] = useState<Map<number, string>>(new Map()); // Maps TEvent.id to TEvent.name
+  const [eventsMap, setEventsMap] = useState<Map<number, TRelatedEventLink>>(
+    new Map()
+  ); // Maps TEvent.id to TEvent.name
   const [isLoading, setIsLoading] = useState(false);
 
   // Assign user-friendly names to the event types
@@ -44,8 +47,12 @@ const Events = () => {
       .then((data: TEndpointResponse) => {
         // Create mapping to be used for displaying related events
         data.data.events.forEach((event: TEvent) =>
-          setEventsMap((prevState: Map<number, string>) => {
-            prevState.set(event.id, event.name);
+          setEventsMap((prevState: Map<number, TRelatedEventLink>) => {
+            prevState.set(event.id, {
+              name: event.name,
+              url:
+                user.type === "public" ? event.public_url : event.private_url,
+            });
             return prevState;
           })
         );

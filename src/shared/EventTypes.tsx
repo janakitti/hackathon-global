@@ -10,6 +10,12 @@ export type TEventFilterDisplay = {
   value: TEventFilters;
 };
 
+// For displaying links to related events
+export type TRelatedEventLink = {
+  name: string;
+  url?: string;
+};
+
 export type TPermission = "public" | "private";
 
 export type TSpeaker = {
