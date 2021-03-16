@@ -48,12 +48,12 @@ const Login = () => {
   };
 
   return (
-    <div id="login__div--login-wrapper">
-      <div id="login__div--login-card">
+    <div id="login__wrapper">
+      <div id="login__card">
         <img
           src="./logo_1.svg"
           alt="logo"
-          className="login__h1--logo"
+          className="login__logo"
           width={150}
           height={150}
         />
@@ -79,12 +79,12 @@ const Login = () => {
           <Button
             variant="primary"
             type="submit"
-            id="login__span--login-button"
+            id="login__login-button"
           >
             Log in
           </Button>
         </form>
-        <span id="login__span--login-error">{loginError}</span>
+        <span id="login__span--error">{loginError}</span>
       </div>
     </div>
   );
