@@ -20,24 +20,24 @@ const SideNav = () => {
 
   return (
     <>
-      <div id="side-nav">
+      <div id="side-nav__container">
         <img
           src={"./logo_1.svg"}
           alt="logo"
-          className="login__h1--logo"
+          className="login__logo"
           width={100}
           height={100}
         />
         <img
-          src={user.profilePic}
-          alt="user profile"
-          id="side-nav__img--pfp"
-        ></img>
+        src={user.profilePic}
+        alt="user profile"
+        id="side-nav__img--pfp"
+        />
         <h1 id="side-nav__h1--username">{user.username}</h1>
         <Link to="/">
           <div
             className={
-              location.pathname === "/" ? "nav-link selected" : "nav-link"
+              location.pathname === "/" ? "nav-link side-nav__nav-link--selected" : "nav-link"
             }
           >
             <img
@@ -53,7 +53,7 @@ const SideNav = () => {
         <Link to="/events">
           <div
             className={
-              location.pathname === "/events" ? "nav-link selected" : "nav-link"
+              location.pathname === "/events" ? "nav-link side-nav__nav-link--selected" : "nav-link"
             }
           >
             <img

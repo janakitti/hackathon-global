@@ -1,4 +1,4 @@
-#side-nav {
+#side-nav__container {
   height: 100vh;
   width: 15em;
   min-width: 15em;
@@ -38,7 +38,7 @@
   box-shadow: $drop-shadow;
 }
 
-.selected {
+.side-nav__nav-link--selected {
   background-color: $primary;
   color: #ffffff;
 }
