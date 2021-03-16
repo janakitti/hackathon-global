@@ -2,6 +2,15 @@
 
 Check it out [⚙️](https://emojipedia.org/gear/): [janakitti.github.io/hackathon-global](https://janakitti.github.io/hackathon-global)
 
+#### Features Completed
+
+- [x] Display all event information on cards
+- [x] Sort events by `start_time`
+- [x] Login feature for access to `private` events
+- [x] Links to view each event
+- [x] Event search feature
+- [x] Filter by `event_type`
+
 ## Part 1
 
 ### How did you plan out the structure and design of it? How did you decide on the tools you've used?
