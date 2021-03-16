@@ -6,10 +6,11 @@ Check it out [⚙️](https://emojipedia.org/gear/): [janakitti.github.io/hackat
 
 - [x] Display all event information on cards
 - [x] Sort events by `start_time`
-- [x] Login feature for access to `private` events
-- [x] Links to view each event
+- [x] Full login feature for access to `private` events
+- [x] Links to view each related event, disabling them according to permission level
 - [x] Event search feature
 - [x] Filter by `event_type`
+- [x] Static home page
 
 ## Part 1
 
@@ -44,6 +45,10 @@ I adopted the Block, Element, Modifiers (BEM) methodology for naming my SCSS sel
 #### Luxon
 
 I used Luxon for formatting the event dates and times.
+
+#### uuid
+
+I used the `uuid` package for generating unique keys to pass to lists of components.
 
 ### Did you encounter any problems? And if so, how did you solve them?
 
