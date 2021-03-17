@@ -42,6 +42,10 @@ There were several scalability considerations I made when implementing context. 
 
 I adopted the Block, Element, Modifiers (BEM) methodology for naming my SCSS selectors. Using this strict naming strategy allowed me to write more meaningful class and id names, and make it much easier for future developers to quickly understand their purpose. With BEM, each selector is made up of a Block (standalone entity), Element (element of/semantically tied to its Block), and a Modifier (a flag on the Block or Element to modify its appearance), all put together like this: `block__element--modifier`.  For example: `side-nav__nav-link--selected`.
 
+#### React Bootstrap
+
+I used React Bootstrap for components such as Buttons and Tooltips, as well as for the grid system.
+
 #### Luxon
 
 I used Luxon for formatting the event dates and times.
