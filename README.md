@@ -14,7 +14,7 @@ Check it out [⚙️](https://emojipedia.org/gear/): [janakitti.github.io/hackat
 
 #### Initial Mockups
 
-After reading the project description and noting down the key deliverables, my first step was to come up with a rough design of the UI:
+After reading the project description and noting down the key deliverables, I headed over to **Figma** to come up with the overall design of the UI. This made it much easier to build and style the components when it came to the actual coding.
 
 **Dashboard Page**
 
