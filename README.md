@@ -12,6 +12,18 @@ Check it out [⚙️](https://emojipedia.org/gear/): [janakitti.github.io/hackat
 - [x] Filter by `event_type`
 - [x] Static home page
 
+#### Initial Mockups
+
+After reading the project description and noting down the key deliverables, my first step was to come up with a rough design of the UI:
+
+**Dashboard Page**
+
+![Dashboard View](mockups/hg_mockup1.png)
+
+**Login Page**
+
+![Login Page](mockups/hg_mockup2.png)
+
 ## Part 1
 
 ### How did you plan out the structure and design of it? How did you decide on the tools you've used?
