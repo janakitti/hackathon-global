@@ -52,7 +52,7 @@ There were several scalability considerations I made when implementing context. 
 
 #### Styles
 
-I adopted the Block, Element, Modifiers (BEM) methodology for naming my SCSS selectors. Using this strict naming strategy allowed me to write more meaningful class and id names, and make it much easier for future developers to quickly understand their purpose. With BEM, each selector is made up of a Block (standalone entity), Element (element of/semantically tied to its Block), and a Modifier (a flag on the Block or Element to modify its appearance), all put together like this: `block__element--modifier`.  For example: `side-nav__nav-link--selected`.
+I adopted the Block, Element, Modifiers (BEM) methodology for naming my SCSS selectors. Using this strict naming strategy allowed me to write more meaningful class and id names, and make it much easier for future developers to quickly understand their purpose. With BEM, each selector is made up of a Block (standalone entity), Element (element of/semantically tied to its Block), and a Modifier (a flag on the Block or Element to modify its appearance), all put together like this: `block__element--modifier`. For example: `side-nav__nav-link--selected`.
 
 #### React Bootstrap
 
@@ -70,7 +70,7 @@ I used the `uuid` package for generating unique keys to pass to lists of compone
 
 #### Routing on GitHub Pages
 
-I ran into some issues with routing after deploying my app to GitHub Pages. I was getting a bunch of `404`s when trying to navigate across pages. I initially had my routes wrapped in a `BrowserRouter `, however upon reading the `react-router-dom` docs, I realized that GitHub Pages doesn’t support routers that use the HTML5 `pushState` history API (which is used by `BrowserRouter`). So whenever GitHub Pages saw a route like `http://janakitti.github.io/hackathon-global/events`, it didn't recognize `/events` as a valid route. The solution was to switch to using routing with hashes, using the `HashRouter` to wrap my routes instead. 
+I ran into some issues with routing after deploying my app to GitHub Pages. I was getting a bunch of `404`s when trying to navigate across pages. I initially had my routes wrapped in a `BrowserRouter `, however upon reading the `react-router-dom` docs, I realized that GitHub Pages doesn’t support routers that use the HTML5 `pushState` history API (which is used by `BrowserRouter`). So whenever GitHub Pages saw a route like `http://janakitti.github.io/hackathon-global/events`, it didn't recognize `/events` as a valid route. The solution was to switch to using routing with hashes, using the `HashRouter` to wrap my routes instead.
 
 #### Responsiveness
 
@@ -115,3 +115,11 @@ As the project grows, I might find that I end up reusing a lot of the component 
 #### Testing
 
 I would use tools such as React Testing Library or Jest to formally test my React components to catch bugs and make refactoring much easier.
+
+## Development
+
+Run `npm i` then `npm run start` to run locally.
+
+## Deployment
+
+Run `npm run deploy` to deploy to GitHub Pages.
