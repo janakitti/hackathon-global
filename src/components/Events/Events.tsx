@@ -46,7 +46,7 @@ const Events = () => {
       .then((res) => res.json())
       .then((data: TEndpointResponse) => {
         // Create mapping to be used for displaying related events
-        data.data.events.forEach((event: TEvent) =>
+        data.data.sampleEvents.forEach((event: TEvent) =>
           setEventsMap((prevState: Map<number, TRelatedEventLink>) => {
             prevState.set(event.id, {
               name: event.name,
@@ -59,7 +59,7 @@ const Events = () => {
 
         // Apply permission filters and sort by start_time
         setEvents(
-          data.data.events
+          data.data.sampleEvents
             .filter(
               (event: TEvent) =>
                 (user.type === "public" && event.permission === "public") ||

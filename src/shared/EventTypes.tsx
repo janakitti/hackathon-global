@@ -44,6 +44,6 @@ export type TEvent = {
 // What the endpoint will return
 export type TEndpointResponse = {
   data: {
-    events: TEvent[];
+    sampleEvents: TEvent[];
   };
 };
