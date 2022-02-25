@@ -22,9 +22,7 @@ const EventFilter: React.FC<IEventFilterProps> = ({
       }}
       onClick={setSelectedFilter}
     >
-      <div className={`event-filter__card-color ${color}`}>
-        {name}
-      </div>
+      <div className={`event-filter__card-color ${color}`}>{name}</div>
     </div>
   );
 };
